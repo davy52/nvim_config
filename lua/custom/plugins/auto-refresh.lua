@@ -1,0 +1,33 @@
+-- local w = vim.uv.new_fs_event()
+--
+-- local reload_all = function()
+--   vim.fn.execute('bufdo e!', 'silent')
+-- end
+--
+-- local function watch_file(fname, func)
+--   local fullpath = vim.api.nvim_call_function('fnamemodify', { fname, ':p' })
+--   w:start(
+--     fullpath,
+--     {},
+--     vim.schedule_wrap(function(...)
+--       func(...)
+--     end)
+--   )
+-- end
+--
+-- local attach_to_git = function()
+--   local git_dir = vim.fn.finddir('.git', vim.fn.getcwd())
+--
+--   if git_dir ~= '' then
+--     watch_file(git_dir .. '/HEAD', reload_all)
+--   end
+-- end
+--
+-- vim.api.nvim_create_autocmd({ 'DirChanged' }, {
+--   desc = 'attach file watcher to git repos',
+--   group = vim.api.nvim_create_augroup('git_repo_attach', { clear = true }),
+--   pattern = { 'global' },
+--   callback = attach_to_git,
+-- })
+--
+return {}
