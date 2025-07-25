@@ -120,6 +120,7 @@ end)
 
 -- Enable break indent
 vim.opt.breakindent = true
+vim.opt.shiftwidth = 0
 
 -- Save undo history
 vim.opt.undofile = true
@@ -165,7 +166,8 @@ vim.opt.scrolloff = 10
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [q]uickfix list' })
+vim.keymap.set('n', '<leader>Q', '<cmd>cw<CR>', { desc = 'Open [Q]uickfix list' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -663,7 +665,7 @@ require('lazy').setup({
             '--background-index',
             '--clang-tidy',
             '--fallback-style=llvm',
-            '--query-driver=/mnt/c/Program\\ Files/Microchip/xc8/v2.39/bin/xc8-cc.exe',
+            '--query-driver=erm-none-eabi-gcc',
             -- '--compile-commands-dir=./' .. vim.fn.findfile('compile_commands.json', vim.uv.cwd() .. ';', 1):match '^(/.+/)' or '',
             '--compile-commands-dir=./',
             '--log=verbose',
@@ -812,6 +814,7 @@ require('lazy').setup({
           --  This will expand snippets if the LSP sent a snippet.
           ['<C-y>'] = cmp.mapping.confirm { select = true },
           ['<C-CR>'] = cmp.mapping.confirm { select = true },
+          ['<Tab>'] = cmp.mapping.confirm { select = true },
 
           -- If you prefer more traditional completion keymaps,
           -- you can uncomment the following lines
